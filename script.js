@@ -59,7 +59,7 @@ const CONFIG = {
     {
       date: "20 September 2025",
       title: "Balikan lagi",
-      text: "2 tahun asing, ehh balikan lagi, entah apa yang tuhsn mau kok bisa begini yaa"
+      text: "2 tahun asing, ehh balikan lagi, entah apa yang tuhan mau kok bisa begini yaa"
     },
 
     {
