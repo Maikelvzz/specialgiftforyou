@@ -5,187 +5,510 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#050516">
   <title>Our Galaxy A Little Story</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
   <div class="galaxy-bg"></div>
+
   <canvas id="constellationCanvas"></canvas>
   <canvas id="fireworksCanvas"></canvas>
+
   <div class="stars-layer" id="starsLayer"></div>
 
   <header class="topbar">
     <div class="brand">✦ HAPPY BIRTHDAY</div>
-    <div class="scroll-hint">SCROLL TO EXPLORE <span>↓</span></div>
+    <div class="scroll-hint">
+      SCROLL TO EXPLORE <span>↓</span>
+    </div>
   </header>
 
-  <!-- Persistent music player: it never changes section or reloads while scrolling. -->
   <aside class="music-dock" id="musicDock">
     <button class="dock-disc" id="dockPlay" aria-label="Play/Pause">▶</button>
+
     <div class="dock-meta">
       <span id="dockSong">Playlist siap diputar</span>
       <small id="dockArtist">Special Playlist</small>
     </div>
+
     <button class="dock-next" id="dockNext" aria-label="Next song">›</button>
-    <div class="dock-progress"><span id="dockProgress"></span></div>
+
+    <div class="dock-progress">
+      <span id="dockProgress"></span>
+    </div>
   </aside>
+
   <audio id="globalAudio" preload="auto"></audio>
 
   <main>
+
+    <!-- HERO -->
     <section class="section hero" id="home">
+
       <div class="hero-card glass">
-        <div class="eyebrow">A LITTLE UNIVERSE MADE FOR YOU</div>
-        <h1>HAPPY BIRTHDAY 🎉<br><span>CORNELIA</span></h1>
-        <p>Ini web yang aku buat sendiri, semoga kamu suka!</p>
+
+        <div class="eyebrow">
+          A LITTLE UNIVERSE MADE FOR YOU
+        </div>
+
+        <h1>
+          HAPPY BIRTHDAY 🎉
+          <br>
+          <span>CORNELIA</span>
+        </h1>
+
+        <p>
+          Ini web yang aku buat sendiri, semoga kamu suka!
+        </p>
+
         <div class="hero-actions">
-          <a class="btn primary" href="#secret">Mulai perjalanan ↓</a>
-          <button class="btn ghost" id="musicHint">♫ Putar musik</button>
+          <a class="btn primary" href="#secret">
+            Mulai perjalanan ↓
+          </a>
+
+          <button class="btn ghost" id="musicHint">
+            ♫ Putar musik
+          </button>
         </div>
+
       </div>
-      <div class="orb orb-a"></div><div class="orb orb-b"></div>
+
+      <div class="orb orb-a"></div>
+      <div class="orb orb-b"></div>
+
     </section>
 
+
+    <!-- SECRET -->
     <section class="section centered" id="secret">
+
       <div class="narrow glass">
+
         <div class="section-number">01</div>
+
         <div class="icon">⌘</div>
-        <div class="eyebrow">HAI SAYANG</div>
-        <h2>Ada satu <span>secret code nih</span>.</h2>
-        <p>Masukkan kode untuk membuka bagian pertama dari perjalanan ini.</p>
+
+        <div class="eyebrow">
+          HAI SAYANG
+        </div>
+
+        <h2>
+          Ada satu <span>secret code nih</span>.
+        </h2>
+
+        <p>
+          Masukkan kode untuk membuka bagian pertama dari perjalanan ini.
+        </p>
+
         <div class="code-row">
-          <input id="code" placeholder="SECRET CODE" autocomplete="off" spellcheck="false">
-          <button class="btn primary" id="check">Buka</button>
+          <input
+            id="code"
+            placeholder="SECRET CODE"
+            autocomplete="off"
+            spellcheck="false"
+          >
+
+          <button class="btn primary" id="check">
+            Buka
+          </button>
         </div>
+
         <div class="error" id="error"></div>
+
       </div>
+
     </section>
 
+
+    <!-- GIFT -->
     <section class="section centered" id="giftSection">
+
       <div class="gift-wrap glass">
+
         <div class="section-number">02</div>
-        <div class="eyebrow">THE LITTLE BOX</div>
-        <h2>Tap the box to <span>unbox</span> it.</h2>
-        <p>Di balik kotak ini ada sesuatu yang hanya bisa dibuka setelah kode benar.</p>
+
+        <div class="eyebrow">
+          THE LITTLE BOX
+        </div>
+
+        <h2>
+          Tap the box to <span>unbox</span> it.
+        </h2>
+
+        <p>
+          Di balik kotak ini ada sesuatu yang hanya bisa dibuka setelah kode benar.
+        </p>
+
         <button class="gift" id="gift" aria-label="Buka hadiah">
-          <i class="shadow"></i><i class="box"></i><i class="lid"></i>
-          <i class="rv"></i><i class="rh"></i><i class="bow a"></i><i class="bow b"></i>
+
+          <i class="shadow"></i>
+          <i class="box"></i>
+          <i class="lid"></i>
+          <i class="rv"></i>
+          <i class="rh"></i>
+          <i class="bow a"></i>
+          <i class="bow b"></i>
+
         </button>
-        <div class="tiny">✦ sentuh kotaknya ✦</div>
+
+        <div class="tiny">
+          ✦ sentuh kotaknya ✦
+        </div>
+
       </div>
+
     </section>
 
+
+    <!-- MESSAGE -->
     <section class="section centered" id="message">
+
       <div class="narrow quote-card">
+
         <div class="section-number">03</div>
-        <div class="quote-mark">“</div>
+
+        <div class="quote-mark">
+          “
+        </div>
+
         <p class="big-quote" id="mainMessage"></p>
+
         <div class="line"></div>
-        <small>sebuah pesan kecil untukmu</small>
+
+        <small>
+          sebuah pesan kecil untukmu
+        </small>
+
       </div>
+
     </section>
 
+
+    <!-- MEMORIES -->
     <section class="section" id="memories">
+
       <div class="content">
+
         <div class="section-number">04</div>
-        <div class="eyebrow">OUR LITTLE MEMORIES</div>
-        <h2>Beberapa hal yang <span>berarti.</span></h2>
-        <p class="lead">Klik fotonya say, ada sesuatu didalamnya.</p>
+
+        <div class="eyebrow">
+          OUR LITTLE MEMORIES
+        </div>
+
+        <h2>
+          Beberapa hal yang <span>berarti.</span>
+        </h2>
+
+        <p class="lead">
+          Klik fotonya say, ada sesuatu didalamnya.
+        </p>
+
         <div class="gallery">
-          <button class="photo" data-img="assets/foto1.jpeg" data-title="inget ini?" data-text="Fotbar kita pas kelas 11, kamu masih unyu unyu HAHA"><span>01</span><b>APAAN NIH??</b></button>
-          <button class="photo" data-img="assets/foto2.jpeg" data-title="Anak kita hihi" data-text="Ini moment yg gabakal aku lupain, foto kamu dan kimi mungil, kangenn bangettt"><span>02</span><b>Kamu dan kimtil</b></button>
-          <button class="photo" data-img="assets/foto3.jpeg" data-title="Kangen.." data-text="Hoodie yg jadi saksi bisu perjalanan kita hehe"><span>03</span><b>Hoodie sapa tuh?</b></button>
-          <button class="photo" data-img="assets/foto4.jpeg" data-title="Fotbar after balikan" data-text="Kalo kamu inget, ini foto pertama kita after balikan, lucu yaa kita hehe"><span>04</span><b>Siapa ya?</b></button>
+
+          <button
+            class="photo"
+            data-img="assets/foto1.jpeg"
+            data-title="inget ini?"
+            data-text="Fotbar kita pas kelas 11, kamu masih unyu unyu HAHA"
+          >
+            <span>01</span>
+            <b>APAAN NIH??</b>
+          </button>
+
+          <button
+            class="photo"
+            data-img="assets/foto2.jpeg"
+            data-title="Anak kita hihi"
+            data-text="Ini moment yg gabakal aku lupain, foto kamu dan kimi mungil, kangenn bangettt"
+          >
+            <span>02</span>
+            <b>Kamu dan kimtil</b>
+          </button>
+
+          <button
+            class="photo"
+            data-img="assets/foto3.jpeg"
+            data-title="Kangen.."
+            data-text="Hoodie yg jadi saksi bisu perjalanan kita hehe"
+          >
+            <span>03</span>
+            <b>Hoodie sapa tuh?</b>
+          </button>
+
+          <button
+            class="photo"
+            data-img="assets/foto4.jpeg"
+            data-title="Fotbar after balikan"
+            data-text="Kalo kamu inget, ini foto pertama kita after balikan, lucu yaa kita hehe"
+          >
+            <span>04</span>
+            <b>Siapa ya?</b>
+          </button>
+
         </div>
+
       </div>
+
     </section>
 
+
+    <!-- JOURNEY -->
     <section class="section timeline-section" id="journey">
+
       <div class="content">
+
         <div class="section-number">05</div>
-        <div class="eyebrow">MEMORY — WE ARE TOGETHER</div>
-        <h2>Dari awal, tumbuh menjadi <span>sebuah perjalanan.</span></h2>
+
+        <div class="eyebrow">
+          MEMORY — WE ARE TOGETHER
+        </div>
+
+        <h2>
+          Dari awal, tumbuh menjadi <span>sebuah perjalanan.</span>
+        </h2>
+
         <div class="timeline" id="timeline"></div>
+
       </div>
+
     </section>
 
+
+    <!-- CONSTELLATION -->
     <section class="section constellation-section" id="constellation">
+
       <div class="constellation-copy glass">
+
         <div class="section-number">06</div>
-        <div class="eyebrow">CONSTELLATION OF WORDS</div>
-        <h2>Klik bintang yang terasa <span>spesial.</span></h2>
-        <p>Setiap bintang menyimpan satu kata. Saat kamu menemukannya, kata itu akan masuk ke koleksi spesialmu.</p>
-        <div class="saved-words" id="savedWords">Belum ada kata yang disimpan.</div>
-        <button class="btn ghost small" id="clearWords">Hapus koleksi</button>
+
+        <div class="eyebrow">
+          CONSTELLATION OF WORDS
+        </div>
+
+        <h2>
+          Klik bintang yang terasa <span>spesial.</span>
+        </h2>
+
+        <p>
+          Setiap bintang menyimpan satu kata.
+          Saat kamu menemukannya, kata itu akan masuk
+          ke koleksi spesialmu.
+        </p>
+
+        <div class="saved-words" id="savedWords">
+          Belum ada kata yang disimpan.
+        </div>
+
+        <button class="btn ghost small" id="clearWords">
+          Hapus koleksi
+        </button>
+
       </div>
-      <div class="constellation-board" id="constellationBoard" aria-label="Constellation interaktif"></div>
+
+
+      <!-- AREA BINTANG -->
+      <div
+        class="constellation-board"
+        id="constellationBoard"
+        aria-label="Constellation interaktif"
+      ></div>
+
     </section>
 
+
+    <!-- SPECIAL WORDS -->
     <section class="section special-section" id="specialWords">
+
       <div class="special-sheet">
+
         <div class="section-number">07</div>
-        <div class="eyebrow">SPECIAL WORDS</div>
+
+        <div class="eyebrow">
+          SPECIAL WORDS
+        </div>
+
         <h2 id="specialTitle"></h2>
+
         <p id="specialText"></p>
+
         <div class="special-line"></div>
+
         <div class="author" id="author"></div>
+
       </div>
+
     </section>
 
+
+    <!-- VIDEO -->
     <section class="section video-section" id="video">
+
       <div class="content">
+
         <div class="section-number">08</div>
-        <div class="eyebrow">A MEMORY IN MOTION</div>
-        <h2>Simpan momen ini <span>baik-baik.</span></h2>
+
+        <div class="eyebrow">
+          A MEMORY IN MOTION
+        </div>
+
+        <h2>
+          Simpan momen ini <span>baik-baik.</span>
+        </h2>
+
         <div class="video-frame">
-          <video controls playsinline preload="metadata">
-            <source src="assets/kenangan.mp4" type="video/mp4">
+
+          <video
+            controls
+            playsinline
+            preload="metadata"
+          >
+
+            <source
+              src="assets/kenangan.mp4"
+              type="video/mp4"
+            >
+
             Browser kamu tidak mendukung video.
+
           </video>
+
         </div>
+
       </div>
+
     </section>
 
+
+    <!-- PLAYLIST -->
     <section class="section playlist-section" id="playlist">
+
       <div class="content">
+
         <div class="section-number">09</div>
-        <div class="eyebrow">SPECIAL PLAYLIST</div>
-        <h2>Three songs for <span>our little universe.</span></h2>
-        <div class="playlist" id="playlistList"></div>
-        <div class="playlist-controls">
-          <button class="btn primary" id="playlistPlay">▶ Putar playlist</button>
-          <button class="btn ghost" id="playlistPrev">‹ Sebelumnya</button>
-          <button class="btn ghost" id="playlistNext">Berikutnya ›</button>
+
+        <div class="eyebrow">
+          SPECIAL PLAYLIST
         </div>
+
+        <h2>
+          Three songs for <span>our little universe.</span>
+        </h2>
+
+        <div
+          class="playlist"
+          id="playlistList"
+        ></div>
+
+        <div class="playlist-controls">
+
+          <button
+            class="btn primary"
+            id="playlistPlay"
+          >
+            ▶ Putar playlist
+          </button>
+
+          <button
+            class="btn ghost"
+            id="playlistPrev"
+          >
+            ‹ Sebelumnya
+          </button>
+
+          <button
+            class="btn ghost"
+            id="playlistNext"
+          >
+            Berikutnya ›
+          </button>
+
+        </div>
+
       </div>
+
     </section>
 
+
+    <!-- FINAL -->
     <section class="section final-section" id="final">
+
       <div class="final-card glass">
+
         <div class="section-number">10</div>
-        <div class="eyebrow">ONE LAST THING</div>
-        <div class="final-stars">✦ ✧ ✦</div>
+
+        <div class="eyebrow">
+          ONE LAST THING
+        </div>
+
+        <div class="final-stars">
+          ✦ ✧ ✦
+        </div>
+
         <h2 id="finalTitle"></h2>
+
         <p id="finalMessage"></p>
-        <div class="final-author" id="finalAuthor"></div>
-        <a class="btn ghost" href="#home">↟ Kembali ke awal</a>
+
+        <div
+          class="final-author"
+          id="finalAuthor"
+        ></div>
+
+        <a
+          class="btn ghost"
+          href="#home"
+        >
+          ↟ Kembali ke awal
+        </a>
+
       </div>
+
     </section>
+
   </main>
 
+
+  <!-- MODAL -->
   <div class="modal hidden" id="modal">
+
     <div class="shade"></div>
+
     <div class="modalbox">
-      <button id="close">×</button>
-      <img id="modalImg" alt="">
-      <div class="eyebrow">A MEMORY</div>
+
+      <button id="close">
+        ×
+      </button>
+
+      <img
+        id="modalImg"
+        alt=""
+      >
+
+      <div class="eyebrow">
+        A MEMORY
+      </div>
+
       <h3 id="modalTitle"></h3>
+
       <p id="modalText"></p>
+
     </div>
+
   </div>
 
-  <div class="toast" id="toast"></div>
+
+  <div
+    class="toast"
+    id="toast"
+  ></div>
+
+
   <script src="script.js"></script>
+
 </body>
 </html>
